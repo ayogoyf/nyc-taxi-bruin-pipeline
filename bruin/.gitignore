@@ -1,0 +1,16 @@
+.bruin.yml
+logs/runs
+logs/*.log
+logs/queries
+__pycache__/
+*.py[cod]
+
+*.json
+.env
+.env.*
+
+*.duckdb
+*.duckdb.wal
+
+.venv/
+venv/
