@@ -62,8 +62,8 @@ SELECT
 FROM ingestion.trips t
 LEFT JOIN ingestion.payment_lookup p
     ON t.payment_type = p.payment_type_id
-WHERE t.pickup_datetime >= '{{ start_datetime }}'
-  AND t.pickup_datetime < '{{ end_datetime }}'
+WHERE t.pickup_datetime >= TIMESTAMP('{{ start_datetime }}')
+  AND t.pickup_datetime < TIMESTAMP('{{ end_datetime }}')
   AND t.fare_amount >= 0
 QUALIFY ROW_NUMBER() OVER (
     PARTITION BY t.pickup_datetime, t.dropoff_datetime,
